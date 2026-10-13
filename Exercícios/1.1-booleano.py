@@ -66,3 +66,42 @@ print(f"{horas}h{minutos}min")   # 2h15min
 x = 10
 x %= 3      # o mesmo que x = x % 3
 print(x)    # 1
+
+# Teste operadores logicos
+
+print ("_Operadores logicos_usuario1")
+
+
+
+ativo = True              # a conta está ativa?
+senha_correta = True      # digitou a senha certa?
+bloqueado = False         # a conta está bloqueada?
+administrador = False     # é administrador?
+horario_comercial = True  # está dentro do horário de trabalho?
+
+
+acesso = ativo and senha_correta and (not bloqueado) and (administrador or horario_comercial)
+
+if acesso:
+    print("Acesso liberado")
+else:
+    print("Acesso negado")
+
+
+print ("_Operadores logicos_usuario2")
+
+
+ativo = True              # a conta está ativa?
+senha_correta = False      # digitou a senha certa?
+bloqueado = False         # a conta está bloqueada?
+administrador = False     # é administrador?
+horario_comercial = False  # está dentro do horário de trabalho?
+
+
+acesso = ativo or senha_correta or  (not bloqueado) or  (administrador or horario_comercial)
+acesso2 = ativo & senha_correta & (not bloqueado) &  (administrador & horario_comercial)
+
+if acesso2:
+    print("Acesso liberado")
+else:
+    print("Acesso negado")
