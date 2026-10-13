@@ -25,3 +25,41 @@ print(idade)  # 50
 
 idade = "Luiza Vieira"  # "Luiza Vieira"
 print(idade)
+
+#----------
+# Exercicios:
+# Variáveis
+
+print("__Exercio Complementar__")
+cliente = "Camila"
+doce = "brigadeiro"
+preco = 2.50
+quantidade = 4
+
+# Cálculo
+total = preco * quantidade
+
+# Saída
+print("Cliente:", cliente)
+print("Produto:", doce)
+print("Quantidade:", quantidade)
+print("Preço unitário: R$", preco)
+print("Total da compra: R$", total)
+
+
+print("__Exercio Complementar Input__")
+
+cliente = input("Digite seu nome: ")
+doce = input("Digite o nome do doce: ")
+preco = float(input("Digite o preço do doce: "))
+quantidade = int(input("Digite a quantidade: "))
+
+# Cálculo
+total = preco * quantidade
+
+# Saída
+print("Cliente:", cliente)
+print("Produto:", doce)
+print("Quantidade:", quantidade)
+print("Preço unitário: R$", preco)
+print("Total da compra: R$", total)
