@@ -1,6 +1,5 @@
 # Exercicios de variaveis
 
-
 nome = "Luiza"  # str  — texto sempre entre aspas (duplas ou simples)
 idade = 25  # int  — número inteiro
 estado = "Pernambuco"  # # str  — texto sempre entre aspas (duplas ou simples)
@@ -12,3 +11,17 @@ print(idade)
 print(estado)
 print(tem_cachorro)
 print(altura)
+
+# REATRIBUIÇÃO
+# ----------------------------------------------------------
+# Variáveis podem ter seu valor trocado a qualquer momento
+# A etiqueta agora aponta para outro valor (para outro objeto na memória que contêm o novo alor)
+
+idade = 30
+print(idade)  # 30
+
+idade = 50
+print(idade)  # 50
+
+idade = "Luiza Vieira"  # "Luiza Vieira"
+print(idade)
