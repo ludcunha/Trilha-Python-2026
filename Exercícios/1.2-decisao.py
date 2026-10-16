@@ -84,7 +84,7 @@ elif pontos == 6 and jogo_direto_contra_lider and saldo_gols > 3:
 elif pontos == 6 and (saldo_gols <3 or gols_marcados < 3):
     print ("Precisa ganhar e torcer")
 elif pontos < 4 or saldo_gols <-2 :
-    print ("Rsico de eliminacao")
+    print ("Risco de eliminacao")
 else:
     print ("Classificação indefinida")
 
