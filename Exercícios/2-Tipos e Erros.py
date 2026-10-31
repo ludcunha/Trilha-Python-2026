@@ -184,8 +184,10 @@
 # media: float = total_gols / 3
 
 # print(f"A média de gols do Brasil foi de: {media:.2f} por jogo")
-
+############################################################
 ###############################################################
+# Atividade Prática – Entendendo e Corrigindo Erros
+#
 # Exercício 1 – Descobrindo os tipos
 
 # # Observe os valores abaixo:
@@ -206,7 +208,6 @@
 ########################  #######  ###############################
 # Exercício 2 – Verificando os tipos
 # Considere as variáveis:
-
 # numero_camisa = 10
 # jogador = "Raphinha"
 
@@ -217,7 +218,6 @@
 # se jogador é uma str.
 
 # Mostre o resultado de cada verificação na tela.
-
 
 # if isinstance(numero_camisa, int):
 #     print("A variável numero_camisa é um número inteiro.")
@@ -315,12 +315,10 @@
 # # TypeError: can only concatenate str (not "int") to str
 # print(jogador + str(numero))
 
-
 # print(type(numero))
 # print(type(jogador))
 
 # print(f"O jogador {jogador} veste a camisa {numero}.")
-
 
 # # O Phyton não sabe se deve somar ou concatenar.Não é possível concatenar variável string com inteiro
 # # Tem um erro de digitação no exercio está escrito camisa 1
@@ -342,7 +340,6 @@
 # aproveitamento: float = 9.1
 # seleção_classificada: bool = True
 
-
 # print(type(nome_da_selecao))
 # print(type(quantidade_de_vitórias))
 # print(type(aproveitamento))
@@ -355,9 +352,7 @@
 ########################  #######  ###############################
 # Exercício 8 – Impedindo o programa de quebrar
 
-
 # Crie um programa que pergunte a idade do usuário:
-
 # Converta a resposta para int.
 
 # Use try/except para impedir que o programa seja encerrado caso alguém
@@ -367,7 +362,6 @@
 # Idade registrada com sucesso.
 # Se ocorrer um ValueError, mostre:
 # Digite a idade utilizando apenas números.
-
 
 # idade_validada: bool = False
 
@@ -409,7 +403,7 @@
 # Digite a nota: 8.5
 # Nota registrada: 8.5
 
-####################
+##### ######## #######
 
 # nota_validada: bool = False
 
@@ -427,9 +421,7 @@
 #     except ValueError:
 #         print("Valor inválido. Digite um número")
 #         nota_validada = False
-
 ########################  #######  ###############################
-
 # Exercício 10 – Continue perguntando até receber um valor válido
 
 # Crie um programa para registrar a quantidade de gols de uma seleção.
@@ -475,5 +467,6 @@
 #         print("Entrada inválida.")
 #         gols_validado = False
 
-
+########################  #######  ###############################
+########################  #######  ###############################
 ########################  #######  ###############################
