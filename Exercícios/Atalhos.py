@@ -9,9 +9,10 @@
 # cls
 
 ###############################################################
-################## LOWER  ##########################################
+################## LOWER  #####################################
 
-# Dica: use .lower() para transformar a resposta em letras minúsculas, evitando problemas se a pessoa digitar SIM ou Sim.
+# Dica: use .lower() para transformar a resposta em letras minúsculas,
+# evitando problemas se a pessoa digitar SIM ou Sim.
 # status_treino = input("Você já iniciou o treino? Digite sim ou não: ").lower()
 
 # while status_treino == "sim":

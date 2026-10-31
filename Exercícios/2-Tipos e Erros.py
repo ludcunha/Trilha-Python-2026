@@ -276,6 +276,7 @@
 # print(type(gols_convertido))
 # total_gols = gols_convertido + 1
 # print(f"Total de gols marcados foi de : {total_gols}")
+
 ########################  #######  ###############################
 # Exercício 5 – Convertendo valores decimais
 
@@ -450,22 +451,22 @@
 
 # O programa só deve parar de solicitar a informação quando receber um valor válido.
 
-# gols_validado = False
+gols_validado = False
 
-# while gols_validado == False:
-#     try:
-#         gols: int = int(input("Quantos gols a seleção marcou? "))
-#         # print(f"Quantidade de gols registrada: {gols}")
-#         gols_validado = True
-#         if gols > 0:
-#             print(f"Quantidade de gols registrada: {gols}")
-#         else:
-#             print(" A quantidade de gols não pode ser negativa")
-#             gols_validado = False
+while gols_validado == False:
+    try:
+        gols: int = int(input("Quantos gols a seleção marcou? "))
+        # print(f"Quantidade de gols registrada: {gols}")
+        gols_validado = True
+        if gols > 0:
+            print(f"Quantidade de gols registrada: {gols}")
+        else:
+            print(" A quantidade de gols não pode ser negativa")
+            gols_validado = False
 
-#     except ValueError:
-#         print("Entrada inválida.")
-#         gols_validado = False
+    except ValueError:
+        print("Entrada inválida.")
+        gols_validado = False
 
 ########################  #######  ###############################
 ########################  #######  ###############################
