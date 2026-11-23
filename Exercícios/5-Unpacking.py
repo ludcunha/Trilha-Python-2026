@@ -333,7 +333,7 @@
 # resultado = calcular_media(*notas)
 # print(f"{resultado:.2f}")
 
-# Observe o comportamento e explique por que o quarto valor deixa de representar uma nota e passa a ocupar o parâmetro bonus.
+# #Observe o comportamento e explique por que o quarto valor deixa de representar uma nota e passa a ocupar o parâmetro bonus.
 
 # O * desempacota os itens da lista na ordem, um em cada parâmetro.
 # Os três primeiros valores vão para nota1, nota2 e nota3, e o quarto elemento vai para o próximo parâmetro da fila, que é o bonus.
@@ -377,20 +377,20 @@
 ####################################################
 
 
-def apresentar_jogador(nome: str, idade: int, posicao: str) -> None:
-    """
-    Apresenta as informações do jogador
-    Args:
-        nome: nome do jogador
-        idade: idade do jogador
-        posicao: posição em campo do jogador
+# def apresentar_jogador(nome: str, idade: int, posicao: str) -> None:
+#     """
+#     Apresenta as informações do jogador
+#     Args:
+#         nome: nome do jogador
+#         idade: idade do jogador
+#         posicao: posição em campo do jogador
 
-    """
-    print(f" A jogadora {nome} tem {idade} anos de idade e joga na posição {posicao}")
+#     """
+#     print(f" A jogadora {nome} tem {idade} anos de idade e joga na posição {posicao}")
 
 
-jogador = {"nome": "Marta", "idade": 40, "posicao": "Atacante"}
-apresentar_jogador(**jogador)
+# jogador = {"nome": "Marta", "idade": 40, "posicao": "Atacante"}
+# apresentar_jogador(**jogador)
 
 
 # Por que as chaves do dicionário precisam possuir os mesmos nomes dos parâmetros da função?
@@ -432,5 +432,341 @@ apresentar_jogador(**jogador)
 
 # calcular_total_gols(*primeiro_tempo)
 
-
 # Explique qual * está recebendo vários argumentos e qual está desempacotando uma coleção.
+
+####################################################
+
+
+# def calcular_total_gols(*gols: int) -> int:
+#     """
+#     Soma uma quantidade variável de gols e retorna o total
+#     Args:
+#         *gols: quantidade variável de gols
+#     Returns:
+#         Retornar o total de gols
+#     """
+#     total_gols = sum(gols)
+#     return total_gols
+
+
+# primeiro_tempo = [1, 2, 1]
+# segundo_tempo = [2, 1]
+
+# total = calcular_total_gols(*primeiro_tempo, *segundo_tempo)
+# print(total)
+
+# #Explique qual * está recebendo vários argumentos e qual está desempacotando uma coleção.
+
+# O * na definição (def calcular_total_gols(*gols)) recebe vários argumentos
+# posicionais e junta todos em uma tupla chamada gols.
+# O * na chamada (calcular_total_gols(*primeiro_tempo)) desempacota a lista,
+# enviando cada elemento como um argumento separado.
+
+###################### FIM #########################
+# Exercício 18 – Parâmetros somente posicionais com /
+
+# Crie uma função chamada registrar_placar com a seguinte assinatura:
+# def registrar_placar(time_a: str,time_b: str,/,gols_a: int,gols_b: int) -> str:...
+
+# A função deve:
+
+# Possuir uma docstring.
+# Utilizar os type hints indicados.
+# Retornar uma string contendo o placar da partida.
+# Exigir que time_a e time_b sejam passados somente por posição.
+# Permitir que gols_a e gols_b sejam passados por posição ou pelo nome.
+
+# Faça uma chamada válida utilizando:
+
+# resultado = registrar_placar("Brasil","Argentina",gols_a=2,gols_b=1)
+# print(resultado)
+
+# Depois, tente:
+
+# registrar_placar(time_a="Brasil",time_b="Argentina",gols_a=2,gols_b=1)
+# Observe o erro e explique em um comentário qual é a função do / na assinatura.
+
+###################### ##### #########################
+
+# def registrar_placar(time_a: str, time_b: str, /, gols_a: int, gols_b: int) -> str:
+#     """
+#     Registra o placar de uma partida entre dois times.
+
+#     Args:
+#         time_a: nome do primeiro time (somente posicional)
+#         time_b: nome do segundo time (somente posicional)
+#         gols_a: gols do primeiro time
+#         gols_b: gols do segundo time
+
+#     Returns:
+#         String com o placar da partida
+#     """
+#     placar = f"O placar da partida foi {time_a} {gols_a} x {gols_b} {time_b}"
+#     return placar
+
+# resultado = registrar_placar("Brasil", "Argentina", gols_a=2, gols_b=1)
+# print(resultado)
+# # Chamada inválida
+# registrar_placar(time_a="Brasil", time_b="Argentina", gols_a=2, gols_b=1)
+
+# #Observe o erro e explique em um comentário qual é a função do / na assinatura.
+
+# # O / é um separador. Os parâmetros à esquerda dele (time_a e time_b) são
+# somente posicionais: devem ser passados pela ordem, sem usar o nome.
+# Os parâmetros à direita (gols_a e gols_b) podem ser passados por posição
+# ou pelo nome, por isso gols_a=2 e gols_b=1 funcionaram na primeira chamada.
+# # Na segunda chamada, time_a e time_b foram passados pelo nome, o que gera:
+# TypeError: registrar_placar() got some positional-only arguments passed
+# as keyword arguments: 'time_a, time_b'
+###################### FIM #########################
+# Exercício 19 – Parâmetros somente nomeados com *
+
+# Crie uma função chamada criar_jogador com a seguinte assinatura:
+# def criar_jogador(nome: str,*,posicao: str,numero: int,titular: bool = False) -> str:...
+# A função deve:
+
+# Possuir uma docstring.
+# Utilizar type hints.
+# Utilizar um valor padrão para titular.
+# Retornar uma string com os dados do jogador.
+# O parâmetro nome pode ser informado por posição.
+
+# Os parâmetros após * devem ser informados pelo nome.
+# Faça uma chamada válida:
+
+# jogador = criar_jogador("Marta",posicao="Atacante",numero=10)
+# print(jogador)
+
+# Depois, faça outra chamada informando:
+# titular=True
+# Por fim, tente executar:
+# criar_jogador("Marta","Atacante",10)
+
+# Observe o erro e explique em um comentário por que posicao e numero não podem
+# ser passados por posição.
+# ####################################################
+
+
+# def criar_jogador(
+#     nome: str, *, posicao: str, numero: int, titular: bool = False
+# ) -> str:
+#     """
+#     Monta um texto com os dados do jogador.
+
+#     Args:
+#         nome: nome do jogador
+#         posicao: posição do jogador em campo
+#         numero: número da camisa do jogador
+#         titular: indica se o jogador é titular; o padrão é False
+
+#     Returns:
+#         Texto com os dados do jogador.
+#     """
+#     dados_jogador = f"A Jogadora {nome} joga na posição {posicao} com a camisa de numero {numero} situação: {titular}"
+#     return dados_jogador
+
+
+# # chamada válida:
+
+# jogador = criar_jogador("Marta", posicao="Atacante", numero=10)
+# print(jogador)
+
+# # chamada informando titular=True:
+# jogador = criar_jogador("Marta", posicao="Atacante", numero=10, titular=True)
+# print(jogador)
+
+# # chamada inválida:
+# criar_jogador("Marta", "Atacante", 10)
+# erro: TypeError: criar_jogador() takes 1 positional argument but 3 were given
+
+# #Observe o erro e explique em um comentário por que posicao e numero não podem ser passados por posição.
+
+# O * foi usado como separador, determinando que os parâmetros após o * sejam
+# obrigatoriamente nomeados. Assim, a função aceita apenas um argumento por
+# posição (o nome). Na chamada criar_jogador("Marta", "Atacante", 10), "Atacante"
+# e 10 foram passados por posição, e o Python não tem onde encaixá-los,
+# por isso apresenta TypeError.
+
+# ###################### FIM #########################
+
+# Exercício 20 – Desafio final: trabalhando com todos os tipos de argumentos
+
+# Crie uma função chamada registrar_jogo com a seguinte assinatura:
+
+# def registrar_jogo(
+# mandante: str,visitante: str,
+# /,
+# competicao: str,
+# *eventos: str,
+# estadio: str,
+# encerrado: bool = True,
+# **informacoes
+# ) -> dict:
+
+# A função deve possuir uma docstring completa explicando:
+
+# O objetivo da função.
+# O que cada parâmetro representa.
+# O que a função retorna.
+
+# A função também deve seguir estas regras:
+
+# mandante e visitante devem ser informados somente por posição.
+# competicao pode ser passada por posição ou pelo nome.
+# *eventos deve receber uma quantidade variável de eventos da partida.
+# estadio deve obrigatoriamente ser informado pelo nome.
+# encerrado deve possuir True como valor padrão.
+# **informacoes deve receber informações adicionais da partida.
+
+# Dentro da função, crie e retorne um dicionário contendo:
+
+# Mandante.
+# Visitante.
+# Competição.
+# Eventos.
+# Estádio.
+# Situação da partida.
+# Informações adicionais.
+# Teste a função com:
+
+# partida = registrar_jogo(
+# "Brasil",
+# "Argentina",
+# "Copa do Mundo",
+# "Gol do Brasil",
+# "Cartão amarelo",
+# "Substituição",
+# estadio="Maracanã",
+# publico=70000,
+# transmissao="TV"
+# )
+# print(partida)
+
+# Depois, considere os seguintes dados:
+
+# times = ["França", "Espanha"]
+# dados = {"estadio": "Stade de France","publico": 65000,"transmissao": "Streaming"}
+
+# Faça uma segunda chamada utilizando:
+
+# *times para desempacotar os dois primeiros argumentos.
+# Uma competição informada normalmente.
+# Dois ou mais eventos posicionais.
+# **dados para desempacotar as informações nomeadas.
+
+# Ao final, escreva comentários identificando o papel de cada elemento da assinatura:
+
+# /
+# *eventos
+# estadio
+# encerrado=True
+# **informacoes
+
+# Explique também a diferença entre:
+
+# *eventos
+# na definição da função e:
+
+# *times
+# na chamada, assim como a diferença entre:
+
+# **informacoes
+# na definição e:
+
+# **dados
+# na chamada.
+####################################################
+
+
+# def registrar_jogo(
+#     mandante: str,
+#     visitante: str,
+#     /,
+#     competicao: str,
+#     *eventos: str,
+#     estadio: str,
+#     encerrado: bool = True,
+#     **informacoes,
+# ) -> dict:
+#     """
+#     Registra os dados de uma partida em um dicionário.
+
+#     Args:
+#         mandante: nome da seleção mandante (somente por posição)
+#         visitante: nome da seleção visitante (somente por posição)
+#         competicao: nome da competição (por posição ou pelo nome)
+#         eventos: eventos da partida, em quantidade variável
+#         estadio: nome do estádio (obrigatoriamente pelo nome)
+#         encerrado: situação da partida; o padrão é True
+#         informacoes: informações adicionais da partida
+
+#     Returns:
+#         Dicionário com os dados da partida.
+#     """
+#     dados_partida = {
+#         "Mandante": mandante,
+#         "Visitante": visitante,
+#         "Competição": competicao,
+#         "Eventos": eventos,
+#         "Estádio": estadio,
+#         "Situação da partida": encerrado,
+#         "Informações adicionais": informacoes,
+#     }
+#     return dados_partida
+
+
+# # Primeira chamada
+
+# partida = registrar_jogo(
+#     "Brasil",
+#     "Argentina",
+#     "Copa do Mundo",
+#     "Gol do Brasil",
+#     "Cartão amarelo",
+#     "Substituição",
+#     estadio="Maracanã",
+#     publico=70000,
+#     transmissao="TV",
+# )
+# print(partida)
+
+# # Depois, considere os seguintes dados:
+
+# # times = ["França", "Espanha"]
+# # dados = {"estadio": "Stade de France","publico": 65000,"transmissao": "Streaming"}
+# partida = registrar_jogo(
+#     "França",
+#     "Espanha",
+#     "Copa do Mundo",
+#     estadio="Stade de France",
+#     publico=65000,
+#     transmissao="Streaming",
+# )
+# print(partida)
+# # Segunda chamada, com *times e **dados
+
+# times = ["França", "Espanha"]
+# dados = {"estadio": "Stade de France", "publico": 65000, "transmissao": "Streaming"}
+
+# partida = registrar_jogo(
+#     *times, "Copa do Mundo", "Gol da França", "Gol da Espanha", **dados
+# )
+# print(partida)
+
+# # #Papel de cada elemento da assinatura:
+
+# # /  -> separador: mandante e visitante, que vêm antes dele, só podem ser informados por posição, nunca pelo nome.
+# # *eventos -> recebe os argumentos posicionais que sobram e junta todos em  uma tupla. Os parâmetros que vêm depois dele só podem ser passados pelo nome.
+# # estadio -> parâmetro obrigatório e somente nomeado: está depois de *eventos e não tem valor padrão, então precisa ser informado pelo nome.
+# # encerrado=True -> parâmetro somente nomeado com valor padrão: se não for
+# #       informado, vale True.
+# # **informacoes -> recebe os argumentos nomeados que sobram e junta todos em um dicionário.
+
+# # Diferença entre *eventos (na definição) e *times (na chamada):
+# # Na definição, o * EMPACOTA: junta vários argumentos posicionais em uma tupla.
+# # Na chamada, o * DESEMPACOTA: abre a lista times e entrega cada item como
+# # um argumento posicional separado.
+
+# # Diferença entre **informacoes (na definição) e **dados (na chamada):
+# # Na definição, o ** EMPACOTA: junta os argumentos nomeados que sobram em# um dicionário. Na chamada,
+# # o ** DESEMPACOTA: abre o dicionário dados e  entrega cada chave como nome de argumento e cada valor como o valor passado.
